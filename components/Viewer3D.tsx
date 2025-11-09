@@ -3,7 +3,8 @@ import React, { Suspense, useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Stage } from '@react-three/drei';
 import * as THREE from 'three';
-import { OrbitControls as OrbitControlsImpl } from 'three/examples/jsm/controls/OrbitControls.js';
+// FIX: Import OrbitControls type from three-stdlib to match @react-three/drei's component ref type.
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 interface ModelProps {
   modelUrl: string;
@@ -23,10 +24,10 @@ function Model({ modelUrl, isWireframe }: ModelProps) {
     });
   }, [scene, isWireframe]);
 
-  // FIX: Cast to React.ReactNode to bypass a TypeScript error where the 'primitive'
-  // JSX element from react-three-fiber is not recognized. This is likely due to
-  // a project configuration issue, and this workaround ensures the code compiles.
-  return <primitive object={scene} /> as React.ReactNode;
+  // The previous cast to React.ReactNode was likely causing runtime errors
+  // by preventing the @react-three/fiber reconciler from handling this element.
+  // With consistent React versions, this should render correctly.
+  return <primitive object={scene} />;
 }
 
 interface Viewer3DProps {
