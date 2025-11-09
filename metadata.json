@@ -1,0 +1,5 @@
+{
+  "name": "Visio3D AI Assistant",
+  "description": "An interactive 3D GLB model viewer with an integrated Gemini-powered AI chatbot for instant customer support and assistance.",
+  "requestFramePermissions": []
+}

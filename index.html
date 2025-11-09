@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visio3D AI Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-primary': '#1e40af', // blue-800
+              'brand-secondary': '#3b82f6', // blue-500
+              'base-100': '#ffffff',
+              'base-200': '#f3f4f6', // gray-100
+              'base-300': '#e5e7eb', // gray-200
+              'base-content': '#1f2937', // gray-800
+              'dark-100': '#0f172a', // slate-900
+              'dark-200': '#1e293b', // slate-800
+              'dark-300': '#334155', // slate-700
+              'dark-content': '#e2e8f0', // slate-200
+            },
+            animation: {
+              'spin-slow': 'spin 3s linear infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <!-- ES Module Shims for import maps -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+    <!-- Import Map for React and Three.js libraries -->
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "three": "https://esm.sh/three@0.164.1",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.16.6",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.105.6",
+    "@google/genai": "https://esm.sh/@google/genai@0.12.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "three/": "https://aistudiocdn.com/three@^0.181.0/"
+  }
+}
+</script>
+  </head>
+  <body class="bg-dark-100 text-dark-content">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
